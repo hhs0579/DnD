@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "43615874237",
+    "project_id": "darkanddarker-d2c9d",
+    "storage_bucket": "darkanddarker-d2c9d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:43615874237:android:84ba3967e04b3f08211bd4",
+        "android_client_info": {
+          "package_name": "com.dnd.darkanddarker"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "43615874237-7hi3836ajsncevijt53buu658unegfkf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCcZ2KVxM9-T5C1x76lG1ngEUd7r7wSuAg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "43615874237-7hi3836ajsncevijt53buu658unegfkf.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
