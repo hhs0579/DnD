@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.dnd.darkanddarker">
    <application
-        android:label="Dnd Asistant"
+        android:label="DnD Assistant"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

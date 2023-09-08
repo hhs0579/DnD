@@ -2,8 +2,6 @@ import 'package:darkanddarker/Pages/auctionPage/auction.dart';
 import 'package:darkanddarker/Pages/equipPage/equip.dart';
 import 'package:darkanddarker/Pages/mapPage/map.dart';
 import 'package:darkanddarker/Pages/myPage/myPage.dart';
-import 'package:darkanddarker/Pages/partyPage/party.dart';
-import 'package:darkanddarker/Pages/solutionPage/solution.dart';
 import 'package:flutter/material.dart';
 
 import '../utils/colors.dart';
@@ -88,7 +86,7 @@ drawer(BuildContext context) {
           ),
           InkWell(
             onTap: () {
-              Navigator.push(context,
+              Navigator.pushReplacement(context,
                   MaterialPageRoute(builder: (context) => (const MyPage())));
             },
             child: Container(
@@ -113,7 +111,7 @@ drawer(BuildContext context) {
           ),
           InkWell(
             onTap: () {
-              Navigator.push(
+              Navigator.pushReplacement(
                   context,
                   MaterialPageRoute(
                       builder: (context) => (const AuctionPage())));
@@ -140,32 +138,7 @@ drawer(BuildContext context) {
           ),
           InkWell(
             onTap: () {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => (const PartyPage())));
-            },
-            child: Container(
-              decoration: const BoxDecoration(
-                  border: Border(
-                bottom: BorderSide(
-                    // POINT
-                    color: Colors.grey,
-                    width: 1),
-              )),
-              child: const ListTile(
-                title: Text('파티 찾기',
-                    style: TextStyle(
-                        fontFamily: 'oldd', fontSize: 18, color: Colors.white)),
-                trailing: Icon(
-                  Icons.arrow_forward_ios,
-                  color: Colors.white,
-                  size: 20,
-                ),
-              ),
-            ),
-          ),
-          InkWell(
-            onTap: () {
-              Navigator.push(context,
+              Navigator.pushReplacement(context,
                   MaterialPageRoute(builder: (context) => (const EquipPage())));
             },
             child: Container(
@@ -190,7 +163,7 @@ drawer(BuildContext context) {
           ),
           InkWell(
             onTap: () {
-              Navigator.push(context,
+              Navigator.pushReplacement(context,
                   MaterialPageRoute(builder: (context) => (const MapPage())));
             },
             child: Container(
@@ -203,33 +176,6 @@ drawer(BuildContext context) {
               )),
               child: const ListTile(
                 title: Text('맵/지도',
-                    style: TextStyle(
-                        fontFamily: 'oldd', fontSize: 18, color: Colors.white)),
-                trailing: Icon(
-                  Icons.arrow_forward_ios,
-                  color: Colors.white,
-                  size: 20,
-                ),
-              ),
-            ),
-          ),
-          InkWell(
-            onTap: () {
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => (const SolutionPage())));
-            },
-            child: Container(
-              decoration: const BoxDecoration(
-                  border: Border(
-                bottom: BorderSide(
-                    // POINT
-                    color: Colors.grey,
-                    width: 1),
-              )),
-              child: const ListTile(
-                title: Text('공략',
                     style: TextStyle(
                         fontFamily: 'oldd', fontSize: 18, color: Colors.white)),
                 trailing: Icon(

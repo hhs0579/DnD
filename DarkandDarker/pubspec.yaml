@@ -39,6 +39,10 @@ dependencies:
   cloud_firestore:
   shared_preferences:
   google_sign_in:
+  firebase_storage:
+  image_picker: ^1.0.2
+  flutter_inappwebview:
+  image:
 dev_dependencies:
   flutter_test:
     sdk: flutter

@@ -41,8 +41,6 @@ class MyApp extends StatelessWidget {
                   primarySwatch: Colors.orange,
                   textTheme: const TextTheme(
                       bodyLarge: TextStyle(fontFamily: 'oldd'))),
-              // ... 이전 코드
-              // ... 이전 코드
               home: StreamBuilder<User?>(
                 stream: FirebaseAuth.instance.authStateChanges(),
                 builder: (context, snapshot) {

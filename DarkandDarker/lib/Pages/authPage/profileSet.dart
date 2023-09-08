@@ -84,7 +84,10 @@ class _ProfileSetPageState extends State<ProfileSetPage> {
               children: [
                 Column(
                   children: [
-                    Image.asset('assets/images/long.png'),
+                    Image.asset(
+                      'assets/images/long.png',
+                      scale: 2,
+                    ),
                     const SizedBox(
                       height: 20,
                     ),

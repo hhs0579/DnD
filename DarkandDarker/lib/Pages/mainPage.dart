@@ -34,6 +34,13 @@ class MainPage extends StatelessWidget {
               child: SizedBox(
                   width: width * 0.5,
                   child: Image.asset('assets/images/long.png')))),
+      body: Container(
+        child: const Text(
+          '공지사항',
+          style: TextStyle(
+              color: Colors.white, fontSize: 22, fontWeight: FontWeight.bold),
+        ),
+      ),
     );
   }
 }

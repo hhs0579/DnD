@@ -159,21 +159,6 @@ class _MyPageState extends State<MyPage> {
                     ),
                     Column(
                       children: [
-                        Container(
-                          alignment: Alignment.center,
-                          width: width * 0.9,
-                          height: 50,
-                          decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(15),
-                              color: ColorList.select),
-                          child: const Text(
-                            '수정하기',
-                            style: TextStyle(
-                                fontFamily: 'oldd',
-                                color: Color(0xff0b14bf),
-                                fontSize: 20),
-                          ),
-                        ),
                         const SizedBox(
                           height: 20,
                         ),
@@ -188,11 +173,11 @@ class _MyPageState extends State<MyPage> {
                             decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(15),
                                 color: ColorList.select),
-                            child: const Text(
+                            child: Text(
                               '탈퇴하기',
                               style: TextStyle(
                                   fontFamily: 'oldd',
-                                  color: Color(0xffce1424),
+                                  color: ColorList.primary,
                                   fontSize: 20),
                             ),
                           ),
