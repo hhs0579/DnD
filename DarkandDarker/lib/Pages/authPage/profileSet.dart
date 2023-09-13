@@ -30,7 +30,30 @@ class _ProfileSetPageState extends State<ProfileSetPage> {
   final FocusNode discordIdFocusNode = FocusNode();
   // 디스코드 아이디에는 # 또는 _가 포함되어야 함
   bool isValidDiscordId(String value) {
-    return value.contains('#') || value.contains('_');
+    // 문자열 길이가 4자리 이상인지 확인
+    if (value.length < 4) {
+      return false;
+    }
+
+    // # 또는 _ 가 있는지 확인
+    bool containsHash = value.contains('#');
+    bool containsUnderscore = value.contains('_');
+
+    // # 또는 _ 가 있고, 나머지가 숫자+알파벳인 경우
+    if ((containsHash || containsUnderscore) &&
+        value
+            .replaceAll(RegExp(r'[_#]'), '')
+            .split('')
+            .every((element) => element.contains(RegExp(r'[\d\w]')))) {
+      return true;
+    }
+
+    // 오직 숫자만 포함하는 경우
+    if (value.split('').every((element) => element.contains(RegExp(r'\d')))) {
+      return true;
+    }
+
+    return false;
   }
 
   // 캐릭터 이름은 영문과 숫자 허용

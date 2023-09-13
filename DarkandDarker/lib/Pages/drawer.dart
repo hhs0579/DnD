@@ -1,5 +1,6 @@
 import 'package:darkanddarker/Pages/auctionPage/auction.dart';
 import 'package:darkanddarker/Pages/equipPage/equip.dart';
+import 'package:darkanddarker/Pages/mainPage.dart';
 import 'package:darkanddarker/Pages/mapPage/map.dart';
 import 'package:darkanddarker/Pages/myPage/myPage.dart';
 import 'package:flutter/material.dart';
@@ -67,125 +68,183 @@ drawer(BuildContext context) {
     child: Drawer(
       backgroundColor: ColorList.primary,
       child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
+          Column(
+            children: [
+              Container(
+                margin: const EdgeInsets.only(top: 50, left: 20, bottom: 20),
+                alignment: Alignment.topLeft,
+                child: const Text(
+                  '메뉴',
+                  style: TextStyle(
+                      fontFamily: 'oldd',
+                      fontWeight: FontWeight.bold,
+                      fontSize: 28,
+                      color: Colors.white),
+                ),
+              ),
+              Container(
+                color: Colors.grey,
+                height: 1,
+              ),
+              InkWell(
+                onTap: () {
+                  Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => (const MainPage())));
+                },
+                child: Container(
+                  decoration: const BoxDecoration(
+                      border: Border(
+                    bottom: BorderSide(
+                        // POINT
+                        color: Colors.grey,
+                        width: 1),
+                  )),
+                  child: const ListTile(
+                    title: Text('메인',
+                        style: TextStyle(
+                            fontFamily: 'oldd',
+                            fontSize: 18,
+                            color: Colors.white)),
+                    trailing: Icon(
+                      Icons.arrow_forward_ios,
+                      color: Colors.white,
+                      size: 20,
+                    ),
+                  ),
+                ),
+              ),
+              InkWell(
+                onTap: () {
+                  Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => (const MyPage())));
+                },
+                child: Container(
+                  decoration: const BoxDecoration(
+                      border: Border(
+                    bottom: BorderSide(
+                        // POINT
+                        color: Colors.grey,
+                        width: 1),
+                  )),
+                  child: const ListTile(
+                    title: Text('내 정보',
+                        style: TextStyle(
+                            fontFamily: 'oldd',
+                            fontSize: 18,
+                            color: Colors.white)),
+                    trailing: Icon(
+                      Icons.arrow_forward_ios,
+                      color: Colors.white,
+                      size: 20,
+                    ),
+                  ),
+                ),
+              ),
+              InkWell(
+                onTap: () {
+                  Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => (const AuctionPage())));
+                },
+                child: Container(
+                  decoration: const BoxDecoration(
+                      border: Border(
+                    bottom: BorderSide(
+                        // POINT
+                        color: Colors.grey,
+                        width: 1),
+                  )),
+                  child: const ListTile(
+                    title: Text('경매장',
+                        style: TextStyle(
+                            fontFamily: 'oldd',
+                            fontSize: 18,
+                            color: Colors.white)),
+                    trailing: Icon(
+                      Icons.arrow_forward_ios,
+                      color: Colors.white,
+                      size: 20,
+                    ),
+                  ),
+                ),
+              ),
+              InkWell(
+                onTap: () {
+                  Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => (const EquipPage())));
+                },
+                child: Container(
+                  decoration: const BoxDecoration(
+                      border: Border(
+                    bottom: BorderSide(
+                        // POINT
+                        color: Colors.grey,
+                        width: 1),
+                  )),
+                  child: const ListTile(
+                    title: Text('장비',
+                        style: TextStyle(
+                            fontFamily: 'oldd',
+                            fontSize: 18,
+                            color: Colors.white)),
+                    trailing: Icon(
+                      Icons.arrow_forward_ios,
+                      color: Colors.white,
+                      size: 20,
+                    ),
+                  ),
+                ),
+              ),
+              InkWell(
+                onTap: () {
+                  Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => (const MapPage())));
+                },
+                child: Container(
+                  decoration: const BoxDecoration(
+                      border: Border(
+                    bottom: BorderSide(
+                        // POINT
+                        color: Colors.grey,
+                        width: 1),
+                  )),
+                  child: const ListTile(
+                    title: Text('맵/지도',
+                        style: TextStyle(
+                            fontFamily: 'oldd',
+                            fontSize: 18,
+                            color: Colors.white)),
+                    trailing: Icon(
+                      Icons.arrow_forward_ios,
+                      color: Colors.white,
+                      size: 20,
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          ),
           Container(
-            margin: const EdgeInsets.only(top: 50, left: 20, bottom: 20),
-            alignment: Alignment.topLeft,
+            margin: const EdgeInsets.only(bottom: 20),
             child: const Text(
-              '메뉴',
+              '후원:토스뱅크 1000-7538-6516',
               style: TextStyle(
-                  fontFamily: 'oldd',
+                  color: Colors.white,
                   fontWeight: FontWeight.bold,
-                  fontSize: 28,
-                  color: Colors.white),
+                  fontSize: 16),
             ),
-          ),
-          Container(
-            color: Colors.grey,
-            height: 1,
-          ),
-          InkWell(
-            onTap: () {
-              Navigator.pushReplacement(context,
-                  MaterialPageRoute(builder: (context) => (const MyPage())));
-            },
-            child: Container(
-              decoration: const BoxDecoration(
-                  border: Border(
-                bottom: BorderSide(
-                    // POINT
-                    color: Colors.grey,
-                    width: 1),
-              )),
-              child: const ListTile(
-                title: Text('내 정보',
-                    style: TextStyle(
-                        fontFamily: 'oldd', fontSize: 18, color: Colors.white)),
-                trailing: Icon(
-                  Icons.arrow_forward_ios,
-                  color: Colors.white,
-                  size: 20,
-                ),
-              ),
-            ),
-          ),
-          InkWell(
-            onTap: () {
-              Navigator.pushReplacement(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => (const AuctionPage())));
-            },
-            child: Container(
-              decoration: const BoxDecoration(
-                  border: Border(
-                bottom: BorderSide(
-                    // POINT
-                    color: Colors.grey,
-                    width: 1),
-              )),
-              child: const ListTile(
-                title: Text('경매장',
-                    style: TextStyle(
-                        fontFamily: 'oldd', fontSize: 18, color: Colors.white)),
-                trailing: Icon(
-                  Icons.arrow_forward_ios,
-                  color: Colors.white,
-                  size: 20,
-                ),
-              ),
-            ),
-          ),
-          InkWell(
-            onTap: () {
-              Navigator.pushReplacement(context,
-                  MaterialPageRoute(builder: (context) => (const EquipPage())));
-            },
-            child: Container(
-              decoration: const BoxDecoration(
-                  border: Border(
-                bottom: BorderSide(
-                    // POINT
-                    color: Colors.grey,
-                    width: 1),
-              )),
-              child: const ListTile(
-                title: Text('장비',
-                    style: TextStyle(
-                        fontFamily: 'oldd', fontSize: 18, color: Colors.white)),
-                trailing: Icon(
-                  Icons.arrow_forward_ios,
-                  color: Colors.white,
-                  size: 20,
-                ),
-              ),
-            ),
-          ),
-          InkWell(
-            onTap: () {
-              Navigator.pushReplacement(context,
-                  MaterialPageRoute(builder: (context) => (const MapPage())));
-            },
-            child: Container(
-              decoration: const BoxDecoration(
-                  border: Border(
-                bottom: BorderSide(
-                    // POINT
-                    color: Colors.grey,
-                    width: 1),
-              )),
-              child: const ListTile(
-                title: Text('맵/지도',
-                    style: TextStyle(
-                        fontFamily: 'oldd', fontSize: 18, color: Colors.white)),
-                trailing: Icon(
-                  Icons.arrow_forward_ios,
-                  color: Colors.white,
-                  size: 20,
-                ),
-              ),
-            ),
-          ),
+          )
         ],
       ),
     ),

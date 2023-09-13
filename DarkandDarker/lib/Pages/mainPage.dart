@@ -35,10 +35,37 @@ class MainPage extends StatelessWidget {
                   width: width * 0.5,
                   child: Image.asset('assets/images/long.png')))),
       body: Container(
-        child: const Text(
-          '공지사항',
-          style: TextStyle(
-              color: Colors.white, fontSize: 22, fontWeight: FontWeight.bold),
+        child: Column(
+          children: const [
+            Text(
+              '공지사항',
+              style: TextStyle(
+                  color: Colors.red, fontSize: 22, fontWeight: FontWeight.bold),
+            ),
+            Padding(
+              padding: EdgeInsets.all(20.0),
+              child: Text(
+                '허위 매물 혹은 허위 입찰자에 대한 신고는 dndsupapp@gmail.com으로 메일 남겨 주시면 됩니다.',
+                style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold),
+              ),
+            ),
+            SizedBox(
+              height: 100,
+            ),
+            Padding(
+              padding: EdgeInsets.all(20.0),
+              child: Text(
+                '거래 완료된 아이템은 거래자가 삭제하시길 바랍니다',
+                style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold),
+              ),
+            ),
+          ],
         ),
       ),
     );

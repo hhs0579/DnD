@@ -25,9 +25,11 @@ class _AuctionUploadPageState extends State<AuctionUploadPage> {
   XFile? _image;
   final ImagePicker picker = ImagePicker();
 
-
   Future<void> uploadImage() async {
     if (_image != null) {
+      setState(() {
+        isLoading = true;
+      });
       File originalFile = File(_image!.path);
       File compressedFile = await compressImage(originalFile);
 
@@ -35,11 +37,13 @@ class _AuctionUploadPageState extends State<AuctionUploadPage> {
           storage.ref().child("auctionItems/${basename(compressedFile.path)}");
       UploadTask uploadTask = reference.putFile(compressedFile);
       await uploadTask.whenComplete(() async {
-        if (!mounted) return; 
+        if (!mounted) return;
 
         TaskSnapshot taskSnapshot = await uploadTask;
         imageURL = await taskSnapshot.ref.getDownloadURL();
-        setState(() {});
+        setState(() {
+          isLoading = false;
+        });
       });
     }
   }
@@ -178,6 +182,11 @@ class _AuctionUploadPageState extends State<AuctionUploadPage> {
                           });
                         } else {
                           // 유효하지 않은 값에 대한 처리 (예: 경고 메시지 표시)
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            const SnackBar(
+                              content: Text('시작가는 10의 배수이어야 합니다.'),
+                            ),
+                          );
                         }
                       },
                       decoration: InputDecoration(
@@ -208,8 +217,11 @@ class _AuctionUploadPageState extends State<AuctionUploadPage> {
             ),
           ),
           InkWell(
-            onTap: isSubmitEnabled && !isLoading
+            onTap: isSubmitEnabled &&
+                    !isLoading &&
+                    (startingPrice != null && startingPrice! % 10 == 0)
                 ? () async {
+                    if (isLoading) return;
                     setState(() {
                       isLoading = true; // 작업 시작 전에 로딩 상태를 true로 설정
                     });
@@ -229,7 +241,7 @@ class _AuctionUploadPageState extends State<AuctionUploadPage> {
 
                         await firestore.collection('items').add({
                           'itemName': itemName,
-                          'startingPrice': startingPrice ?? 0.0,
+                          'startingPrice': startingPrice ?? 0,
                           'imageURL': imageURL,
                           'owner': user.displayName,
                           'nickname': nickname,

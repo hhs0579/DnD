@@ -119,35 +119,28 @@ class _AuctionPageState extends State<AuctionPage> {
       body: Column(
         children: [
           Expanded(
-            child: SingleChildScrollView(
-              child: SizedBox(
-                width: width,
-                height: height,
-                child: StreamBuilder(
-                  stream: firestore.collection('items').snapshots(),
-                  builder: (context, AsyncSnapshot<QuerySnapshot> snapshot) {
-                    if (snapshot.hasError) {
-                      return const Text('Something went wrong');
-                    }
-                    if (snapshot.connectionState == ConnectionState.waiting) {
-                      return const CircularProgressIndicator();
-                    }
-                    final items = snapshot.data!.docs;
+            child: StreamBuilder(
+              stream: firestore.collection('items').snapshots(),
+              builder: (context, AsyncSnapshot<QuerySnapshot> snapshot) {
+                if (snapshot.hasError) {
+                  return const Text('Something went wrong');
+                }
+                if (snapshot.connectionState == ConnectionState.waiting) {
+                  return const CircularProgressIndicator();
+                }
+                final items = snapshot.data!.docs;
 
-                    return Container(
-                      padding: const EdgeInsets.all(10),
-                      child: ListView.builder(
-                        itemCount: items.length,
-                        itemBuilder: (context, index) {
-                          final item = items[index];
-                          return buildListTile(
-                              item); // 이제 각 항목에 대한 ListTile을 생성
-                        },
-                      ),
-                    );
-                  },
-                ),
-              ),
+                return Container(
+                  padding: const EdgeInsets.all(10),
+                  child: ListView.builder(
+                    itemCount: items.length,
+                    itemBuilder: (context, index) {
+                      final item = items[index];
+                      return buildListTile(item); // 이제 각 항목에 대한 ListTile을 생성
+                    },
+                  ),
+                );
+              },
             ),
           ),
           InkWell(
